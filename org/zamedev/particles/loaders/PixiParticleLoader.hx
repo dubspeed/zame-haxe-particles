@@ -1,11 +1,11 @@
 package org.zamedev.particles.loaders;
 
 import haxe.Json;
+import haxe.DynamicAccess;
 import lime.graphics.opengl.GL;
 import openfl.Assets;
 import openfl.errors.Error;
 import org.zamedev.particles.ParticleSystem;
-import org.zamedev.particles.util.DynamicExt;
 import org.zamedev.particles.util.MathHelper;
 import org.zamedev.particles.util.ParticleColor;
 import org.zamedev.particles.util.ParticleVector;
@@ -18,7 +18,7 @@ class PixiParticleLoader {
     private static inline var BLEND_MODE_MULTIPLY : String = "multiply";
 
     public static function load(path : String, texturePath : String) : ParticleSystem {
-        var map : DynamicExt = Json.parse(Assets.getText(path));
+        var map : DynamicAccess<Dynamic> = Json.parse(Assets.getText(path));
         var ps = new ParticleSystem();
 
         ps.textureBitmapData = ParticleLoader.loadTexture(null, texturePath, path);
@@ -149,14 +149,14 @@ class PixiParticleLoader {
         return ps;
     }
 
-    private static function asVector(map : DynamicExt, prefix : String) : ParticleVector {
+    private static function asVector(map : DynamicAccess<Dynamic>, prefix : String) : ParticleVector {
         return new ParticleVector(
             map['${prefix}x'].asFloat(),
             map['${prefix}y'].asFloat()
         );
     }
 
-    private static function asColor(map : DynamicExt, param : String, subParam : String) : ParticleColor {
+    private static function asColor(map : DynamicAccess<Dynamic>, param : String, subParam : String) : ParticleColor {
         if (!map.exists(param)) {
             return new ParticleColor(0.0, 0.0, 0.0, 1.0);
         }

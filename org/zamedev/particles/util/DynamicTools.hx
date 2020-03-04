@@ -1,7 +1,9 @@
 package org.zamedev.particles.util;
 
+import haxe.DynamicAccess;
+
 class DynamicTools {
-    public static function asDynamic(value : Dynamic) : DynamicExt {
+    public static function asDynamic(value : Dynamic) : DynamicAccess<Dynamic> {
         if (value == null) {
             return {};
         } else {
@@ -9,7 +11,7 @@ class DynamicTools {
         }
     }
 
-    public static function asArray(value : Dynamic) : Array<DynamicExt> {
+    public static function asArray(value : Dynamic) : Array<DynamicAccess<Dynamic>> {
         if (Std.is(value, Array)) {
             return value;
         } else {

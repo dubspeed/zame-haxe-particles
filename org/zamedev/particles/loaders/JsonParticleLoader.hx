@@ -1,9 +1,9 @@
 package org.zamedev.particles.loaders;
 
 import haxe.Json;
+import haxe.DynamicAccess;
 import openfl.Assets;
 import org.zamedev.particles.ParticleSystem;
-import org.zamedev.particles.util.DynamicExt;
 import org.zamedev.particles.util.MathHelper;
 import org.zamedev.particles.util.ParticleColor;
 import org.zamedev.particles.util.ParticleVector;
@@ -12,7 +12,7 @@ using org.zamedev.particles.util.DynamicTools;
 
 class JsonParticleLoader {
     public static function load(path : String) : ParticleSystem {
-        var map : DynamicExt = Json.parse(Assets.getText(path));
+        var map : DynamicAccess<Dynamic> = Json.parse(Assets.getText(path));
         var ps = new ParticleSystem();
 
         ps.emitterType = map["emitterType"].asInt();
@@ -60,14 +60,14 @@ class JsonParticleLoader {
         return ps;
     }
 
-    private static function asVector(map : DynamicExt, prefix : String) : ParticleVector {
+    private static function asVector(map : DynamicAccess<Dynamic>, prefix : String) : ParticleVector {
         return new ParticleVector(
             map['${prefix}x'].asFloat(),
             map['${prefix}y'].asFloat()
         );
     }
 
-    private static function asColor(map : DynamicExt, prefix : String) : ParticleColor {
+    private static function asColor(map : DynamicAccess<Dynamic>, prefix : String) : ParticleColor {
         return new ParticleColor(
             map['${prefix}Red'].asFloat(),
             map['${prefix}Green'].asFloat(),
