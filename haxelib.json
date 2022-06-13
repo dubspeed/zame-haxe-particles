@@ -6,8 +6,5 @@
     "description": "Particle system for OpenFl.",
     "version": "1.1.0",
     "releasenote": "Support for OpenFl 8.x (support for earlier versions was droped). GL renderer was dropped in favour of tilemap renderer.",
-    "contributors": ["restorer"],
-    "dependencies": {
-        "format": ""
-    }
+    "contributors": ["restorer"]
 }
