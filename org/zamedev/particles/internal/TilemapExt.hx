@@ -14,7 +14,9 @@ class TilemapExt extends Tilemap {
         stack : Array<DisplayObject>,
         interactiveOnly : Bool,
         hitObject : DisplayObject,
+        #if (openfl < "8.0.0")
         hitTestWhenMouseDisabled:Bool = false
+        #end
     ) : Bool {
         return false;
     }
