@@ -1,7 +1,7 @@
 package org.zamedev.particles.loaders;
 
-import flash.display.BitmapData;
-import flash.errors.Error;
+import openfl.display.BitmapData;
+import openfl.errors.Error;
 import org.zamedev.particles.ParticleSystem;
 import org.zamedev.particles.util.MathHelper;
 import org.zamedev.particles.util.ParticleColor;

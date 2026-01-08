@@ -15,7 +15,7 @@ class DynamicTools {
         if (Std.is(value, Array)) {
             return value;
         } else {
-            return new Array<Dynamic>();
+            return new Array<DynamicAccess<Dynamic>>();
         }
     }
 

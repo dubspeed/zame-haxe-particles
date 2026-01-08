@@ -1,7 +1,7 @@
 package org.zamedev.particles;
 
-import flash.display.BitmapData;
 import haxe.Timer;
+import openfl.display.BitmapData;
 import org.zamedev.particles.internal.GL;
 import org.zamedev.particles.util.MathHelper;
 import org.zamedev.particles.util.ParticleColor;

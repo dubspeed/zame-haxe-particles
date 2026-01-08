@@ -1,12 +1,15 @@
 package org.zamedev.particles.renderers;
 
-import flash.display.Bitmap;
-import flash.display.Sprite;
-import flash.events.Event;
+import openfl.display.Bitmap;
+import openfl.display.Sprite;
+import openfl.events.Event;
 import org.zamedev.particles.ParticleSystem;
 import org.zamedev.particles.internal.GL;
 
-#if (native || webgl || flash)
+#if (native || webgl)
+    import openfl.display.BlendMode;
+    import openfl.filters.ColorMatrixFilter;
+#elseif (flash)
     import flash.display.BlendMode;
     import flash.filters.ColorMatrixFilter;
 #end
